@@ -1,0 +1,8 @@
+Il va y avoir une erreur de compilation. (j'ai même testé pour être sûr)
+
+En effet, cela crée une ambigüité entre int a(int a = 77) et int a(), les deux méthodes de la classe A. 
+Les deux peuvent être appelées comme suit : int entier = a() et le compilateur ne peut pas faire la différence, c'est correct
+pour les deux fonctions. Rajouter la valeur 77 d'execution par défaut annule la surcharge. 
+
+int a(int a) et int a() sont deux fonctions différentes, l'une prend forcément un int, l'autre forcément rien. 
+int a(int a = 77) peut ne rien prendre (et s'executer de sa manière avec 77), et on peut alors la confondre avec l'autre. 

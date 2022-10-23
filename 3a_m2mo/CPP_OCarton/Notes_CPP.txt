@@ -1,0 +1,158 @@
+Notes de code (à retenir et à compléter avec la vieille note de java sur mon bureau) :
+
+j'avais des tampons que j'avais mindlessly mis en int, alors que ma matrice contenait des double... double tmp; a résolu le pb.
+
+Attention aux types de données en C, il n'y aura pas de filet (cf les négatifs dans le h-index...)
+
+je voulais remplacement une valeur par une autre que j'avais en mémoire (un switch de deux valeurs, donc), il me faut nécessairement
+un troisième tampon (tmp2, cf td3) pour ce faire. Sinon, on ne fait ou bien que coller la même chose, ou que télécharger avant de remettre.
+
+---------------------------------------------- 
+
+Cours 4 (classes) : En CPP, quand on passe un paramètre on passe TOUJOURS une copie, mais pour un pointeur ça dérange pas trop. 
+
+En JAVA on passe la référence de l'objet et des liens. Après en java on peut envoyer un lien vers l'objet. 
+
+IMPORTANT : lorsqu'on veut qu'une classe soit très claire, on entasse très souvent tous les prototypes de classe au même endroit.
+Bon, peut-être pas pour les getters et setters, mais sinon on entasse comme suit :
+int weekday();
+int dist(Date date0);
+bool isMatchDay(League league, Season season);
+
+et il se trouve qu'on ne peut pas DEFINIR au même endroit qu'on a DECLARE donc on les déclare toutes au même endroit,
+et on les définit tout en bas (pour plus de lisibilité en réalité) une fois qu'on a fini la classe. Cela ressemble alors à 
+bool Date::isMatchDay(League league, Season season) {
+__
+__
+__
+}
+et ainsi de suite. La syntaxe générale est 
+type Class::Method(type_arg arg1, type_arg arg2) {
+  ...
+}
+
+Si je veux faire référence à un des attributs à l'intérieur de la classe avec le this :
+(*this).getName() par exemple. (*this) parce que this est un pointeur, on copie les objets et on donne un pointeur dessus. 
+Quand on écrit (*p).z, on pourrait aussi écrire p->z (qui fait la même chose, on accède au z de l'objet pointé par p). 
+
+student0->university.getAddress(); (Si on imagine qu'on a une banque d'élèves inscrits dans un club de foot de Californie)
+
+IMPORTANT lorsqu'on a un constructeur par défaut (et donc qu'on n'a pas de paramètres, style :
+class Date {
+private:
+int d;
+Date() {d=1;}
+}
+ON DOIT ECRIRE 
+Date d;
+ET PAS 
+Date d(); //Comme on aurait envie de le faire. Le constructeur par défaut c'est bien Date(){};
+	
+Constructeur pas de type de retour, même nom que la classe.
+Si on ne met pas de constructeur nous-mêmes, le constructeur qui existe sera le constructeur par défaut. 
+
+En JAVA y'a qu'une façon de passer un paramètre. Quand c'est un type primitif, c'est par copie. Sinon, par référence.
+En C++ (2011 notamment) la philosophie était de donner au constructeur toujours plus de possibilités. 
+Java avait comme idéologie l'inverse, de restreindre le programmeur. 
+(Avant 2000 - y'avait déjà 3 façons de passer des paramètres, mais ils ont continué à en rajouter).
+Constructeur de Move  : Date(Date &&) Move semantics
+Constructeur de copie : Date(Date  &) 
+
+différence entre class et struct : que du public dans les struct. Dans class, tout est private sauf ce qu'on met en public. 
+
+En CPP on a le droit de déclarer les choses autant de fois qu'on veut, mais pas plusieurs définitions bien sûr. 
+Spécifique au CPP. 
+
+NOTE PERSO : j'avais un problème :
+class.cc:6: return type specification for constructor invalid
+quand on définit le constructeur dans le .cpp (après la déclaration dans le .h) il n'y a pas de type de retour. 
+ça construit un objet, c'est lui-même qui est retourné fin bref. Mais là, j'avais bien mis Class::Class, et j'avais un pb. 
+
+Solution : ne pas oublier de mettre le point-virgule à la fin du struct{}; dans le .h
+
+Un peu de CPP avec notamment une note sur le new importante :
+Student* EnterStudent() {
+  char name[100];
+  int birthdate;
+  cout << "Nom de l'élève : ";
+  cin >> name;
+  cout << "Date de naissance de l'élève : ";
+  cin >> birthdate;
+  return new Student(name, birthdate); //Constructeur de notre classe Student : CNS (char* name, int birthdate)
+  //On utilise bien new ici, car on veut un pointeur vers un élève, et non un élève, qui serait détruit à la fin de la fonction.
+}
+
+Note pour moi-même : juste après ce paragraphe, j'ai laissé copilot écrire la fonction suivante (EnterClass). 
+Et il me l'a codée proprement, dans le MEME STYLE que moi sur la fonction juste précédente. Le plus choquant est le recopiage
+PARFAIT des commentaires. Copilot a été développé par OpenAI eh bien je tire mon chapeau. La syntaxe CNS, le "bien new ici",
+même le "Nom du cours : " au lieu du "Entrez le nom du cours : " qu'il y avait auparavant... Je suis speechless choqué. 
+Il s'est même corrigé tout seul. En fait, c'est vraiment une synergie entre moi qui sais quoi changer et où lui demander d'agir
+et lui qui agit instantanément. alors bien sûr en pointe et là où personne n'est allé ça marchera pas, mais là... 
+Il faut avoir les bases et plus que les bases mais là c'est vraiment impressionnant au moins d'en être effrayant. 
+
+Attention aux const (cf TD4) : lorsqu'une méthode est read-only, il faut rajouter un const,
+sinon le compilateur n'est pas sûr qu'on ne modifie pas l'objet. Et alors quand on passe des const en arguments, il sait que c'est ok.
+Sinon, il nous dira un truc genre 'const dropped' ou 'discards const' puisque l'objet supposément constant serait potentiellement modifié.
+
+g++ -g le -g c'est le mode debugging - ça permet de faire du pas à pas pendant l'execution, ça prend de la place donc 
+on ne le livre pas (un truc compilé sans le -g prend BCP moins de place) tel quel mais pratique pour le dev. 
+-Wall ce sont les instructions usuelles. 
+
+
+GROS MORCEAU - SUR LE TP STRUCT ELEMENT LISTES DOUBLEMENT CHAINEES
+J'avais donc fait le 3.1.cc entièrement, pas de prototype, direct dans le dur. 
+Il se trouve que c'est vraiment pas l'idée du CPP : on fait d'abord le prototype et ensuite on a tous les int Class::Method etc...
+Autre chose : les Element qui avaient été défini (struct) dans la classe List n'existent pas en dehors de List. 
+On doit donc les utiliser (dans le .cc) comme ça : List::Element List::getElement(Element* element_p) {}
+Mais par contre, à l'intérieur même des parenthèses de la signature, on sait déjà qu'on est dans List, donc on y connaît les Elements. 
+	
+CF favori stack overflow sur les C* c = new C();
+struct def calloc etc... en fait ici j'avais créé un element mais j'avais oublié que new créait un pointeur vers l'endroit
+désormais alloué et divisé en les bonnes catégories pour l'objet. Donc j'avais des element.truc (qui auraient été corrects si
+element avait pu être l'élément lui-même et pas un pointeur vers la zone dédiée) que j'ai dus transfo en element->truc.
+
+Parallèlement, j'avais des &element pour faire référence à l'adresse de la zone, j'ai du les changer en element tout court...
+Attention aussi à ne pas écrire delete cur; deux fois, deux free le compilateur aime pas. 
+Et attention à ne pas écrire delete attribut, ça ne fait aucun sens et le compilateur s'en fout. 
+Par contre, head = nullptr pour signifier qu'il n'y a plus rien à NumThings et delete cur; oui.
+
+Pointeurs vs Références -- 
+void noswap(int n, int m) ne change rien car ce sont des copies qu'on manipule
+
+void swap(int* p, int* q) { Passages par pointeurs -- appelé en écrivant swap(&i, &j); (on a bien besoin de leurs pointeurs)
+  int t = *p;
+  *t = *q;
+  *q = t;
+}
+
+
+void swap(int &r, int &s) { Passage par référence -- appelé en écrivant cette fois directement swap(i,j);
+  int t = r;
+  r = s;
+  s = t;
+
+Redéfinition d'opérateurs courants (crochets, parenthèses) pour les utiliser sur notre classe :
+j'ai une classe Array (on veut faire une super-classe tableaux) donc ça s'y prête bien, sinon on ne le ferait pas (ex des complexes)
+ 
+V2. double *at(int i) {if(...) return &t[i] (pointeur sur la case en question)
+V2.1 double *at(int i)........ return t+1   (idem)
+
+V3 double &at(int i).......... return t[i]
+V4 double & operator[](int i). return t[i]  (on a redéfini le crochet pour qu'il se comporte comme pour un array typique, mais cette fois pour NOTRE Array).
+
+SUR LE KEYWORD STATIC - 
+un attribut static est un attribut partagé par TOUTES les instances d'une classe. 
+
+UNE METHODE STATIQUE N'ACCEDE QU'AUX ATTRIBUTS STATIC puisqu'elle a pas accès au pointeur this de toute façon. 
+C'est une méthode qui peut être utilisée sans instance de classe. 
+Attribut statique ; partagé par toutes les instances. 
+
+CF EX2 TD6 - int& y = x -- si on modifie x, y étant une référence sur x, y sera modifié aussi. Mais on ne fait pas *y, on utilise direct y.
+
+UN STATIC NE S'INITIALISE PAS TOUT SEUL !! c'est pas - au premier appel il devient 0 si pas initialisé 
+c'est plutôt - il doit être initialisé dans le .cc (et évidemment pas dans le .h)
+
+0x1 << (j%64) OVERFLOWS car la représentation 0xF hex est une représentation de 32 bits, et là on veut faire un décalage de 64.
+Donc on boucle sur nous-mêmes en réalité, et on ne finit par le décaler de 12 pour 44 et 5 pour 37 par exemple...
+Solution : CASTER LE 0x1 qui par défaut est un int32, en uint64 (ou unsigned long long, on l'a défini tel quel)
+Ceci est un type par défaut qui dépend de la machine !!

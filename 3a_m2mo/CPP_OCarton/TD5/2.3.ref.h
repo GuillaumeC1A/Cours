@@ -1,0 +1,11 @@
+#include"2.2.h"
+voidPrintPixel(Pixel*pixel);
+voidResetPixel(Pixel*pixel);
+classPixelArray{
+public:
+PixelArray(intnum,Pixel*pixels);
+Pixel*GetPixel(inti);
+private:
+intnum_;
+Pixel*pixels_;
+};

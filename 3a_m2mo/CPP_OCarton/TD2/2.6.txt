@@ -1,0 +1,17 @@
+Pourquoi pgcd pas besoin d'écrire en itératif alors que besoin factorielle et fibo :
+
+Formule :
+le pgcd de a et de b c'est égal au pgcd de b et a%b (algo d'euclide que j'ai mis en place), descend jusqu'au reste égal à zéro
+et on retourne alors b. 
+
+Complexité : ce qui compte dans les programmes c'est le nombre d'opérations qu'on fait (plus important que la place mémoire). 
+En l'occurence, pour le pgcd, la principale opération que l'on a c'est la division euclidienne. Le temps de calcul estimé est donc
+directement lié au nombre de divEucli qu'on va faire.
+
+Il y a une propriété pour le pgcd : on divise très rapidement les nombres en argument, par 2 la taille des arguments. 
+Un nombre de taille 2^64 nécessitera ainsi 64 tours pour être traité.
+C(a,b) = C(b, a%b) + 2 qui se résoud en 2log(n) ce qui est une complexité très intéressante, assez basse. 
+
+pour n!, le problème c'est le stackoverflow, on a besoin de trop d'espace mémoire. 
+pour fibonacci, l'opération principale c'est le nombre de '+'. 
+C(n) = 1 + C(n-1) + C(n-2) > C(n-1) + C(n-2) ce qui prouve que C(n) est un O(exp(n)). Donc la complexité explose pour Fibonacci. 

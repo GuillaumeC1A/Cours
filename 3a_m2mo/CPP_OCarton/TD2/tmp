@@ -1,0 +1,5 @@
+voidGetDate(int*year,int*month,int*day){
+*year=2018;
+*month=9;
+*day=19;
+}

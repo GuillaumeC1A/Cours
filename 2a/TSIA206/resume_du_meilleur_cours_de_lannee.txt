@@ -1,0 +1,33 @@
+Hidden Markov Models
+Un VAE est un AE dans lequel on a une approche probabiliste (l'autoencoder apprend juste un modèle, un vecteur)...
+VQVAE de Jukebox (les autres sont - Skype / Baidu / OpenAI Dali... le chauffeur de Terre...)
+MFCC, Mel Filters etc...
+Deep learning CNN Convolutional Neural Network, RNN Recursive, DNN, GMM, HMM
+Stride, maxPooling, AvgPooling...
+
+
+Remplir les trous en utilisant RNN
+Combler les trous en utilisant CNN
+
+Comparaison GOATESQUE de G. Peeters pendant le génial cours du 24/06 - L'urss aimait bien effacer les hommes politiques gênants, 
+un peu comme Macron avec Blanquer en ce moment. (Idem précedemment avec la claque dans la figure de Baidu, sa simplicité, sa charge 
+de calcul, son efficacité et le fait qu'il soit open-source, c'est la même claque que celle prise par Macron aux législatives).
+"C'est le 91.06 qui fait chier comme ça?"
+
+Les boss du audio deep learning game c'est Microsoft
+Tach-o-tron2 big boss
+WaveNet big pendant longtemps (pavé dans la mare de Google !... avec Alex Jones jcrois, le CTC (matrice à corridor descendant))
+Differentiable Digital Signal Processing (DDSP) (le deuxième pavé dans la mare de Google)
+
+Modèle harmonique de google qui sort à partir d'un .wav de piano les harmoniques d'un côté et le bruit du marteau de l'autre
+idem pour le violon où d'un son de violon il sort d'un côté uniquement la partie harmonique et de l'autre le grain, le colloflamme,
+la partie frottement de l'archet sur les cordes du violon, physiquement quoi. 
+"Convolué par la réponse impulsionnelle de la salle, vous allez le faire dans FEU NOTRE DAME DE PARIS KEKWmario"
+
+Centre FACEBOOK de PARIS (Alexandre des Fossesses) Demux2 - démixer un morceau mixé (i.e. passer du FL exporté aux subtracks)
+
+AudioTAS
+Pour la DDSP : synthèse sinûsoïdale, marchait super bien...
+
+Ravanelli, Yoshua Bengio (speaker recognition from raw waveform with sincnet, 2018) - toujours très actif, il passe pas son temps à la télé
+

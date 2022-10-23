@@ -1,0 +1,14 @@
+Ceci est un faux valconv, fait à la main en une seule formule logique mais pas calculatoire. 
+
+def valconv(h,u,n):
+  len_h, len_u = len(h), len(u)
+  u,h=u.reshape(-1),v.reshape(-1)
+  val = 0
+  for i in range(0,n): #On prend tous les produits dont au moins une valeur est non nulle et on rajoutera des zéros lorsqu'on est en dehors des supports de suites.
+    #L'idée est qu'en faisant 0->n, on coupe déjà les m > n pour h, puisque u commence à l'indice 0 après le reshape. 
+    if((n-i < 0) or (n-i >= len_u) or (i > len_h)):
+      val += 0
+    else:
+      val += h[i]*u[n-i]
+  return val
+

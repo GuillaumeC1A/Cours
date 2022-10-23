@@ -1,0 +1,9 @@
+def ARMA(N, AR_coeff_P, MA_coeff_Q, innov_sigma_eps=1):
+    P,Q = len(AR_coeff_P), len(MA_coeff,Q)
+    epsilons = innov_sigma_eps * np.random.randn(N)
+    X = np.zeros(N)
+    X[0] = epsilons[0]
+    for n in range(1,N):
+        k1,k2 = min(P,n), min(Q,n)
+        X[n] = epsilons[n] + (np.flip(AR_coeff_P[:k1]) * X[n-k1:n]).sum() + (np.flip(MA_coeff_Q[:k2]) * epsilons[n-k2:n]).sum()
+    return X

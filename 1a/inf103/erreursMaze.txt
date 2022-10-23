@@ -1,0 +1,15 @@
+ Erreurs : 
+-> Enorme erreur de ne pas initialiser mazeBoard dans le constructeur...
+certes, il n'en a pas besoin en paramètre car il le construit juste avec Mbox[param1][param2]
+mais il faut quand même le créer ! 
+ET PAREIL POUR LES COORDS FRERENT CONCENTRE TOI
+-> Erreur sortie : ArrayIndexOutOfBoundsException avec un index 0 pour une length 0...
+-> Solution : l'objet n'a pas été créé. Ce n'est pas parce qu'il fait partie de la classe
+que l'ordinateur va le faire tout seul. D'où (intuitivement) le créer, mais en orienté objet,
+ça va avec le constructeur ! Tu l'as un peu senti dans les Mbox... Mais gaffe !
+
+CHANGING NAMes wont SWITCH THE ORDER..............................?
+
+NullPointerException when resizing the maze... parce qu'on n'a pas généré la bonne taille 
+de labyrinthe... Gérer les exceptions ! Surtout quand le txt fourni n'est pas adapté
+au Maze créé. C'est ça la dernière erreur. Et aussi quand y'a pas de sortie.

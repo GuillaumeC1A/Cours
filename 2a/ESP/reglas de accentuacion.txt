@@ -1,0 +1,8 @@
+Reglas para la accentuación en español:
+
+grupo 1 - última silaba - vocal / -n / -s => acento (canté) sino, no acento (papel)
+
+grupo 2 - penúltima silaba - consonante excepto -n -s => acento (cárcel), sino, no acento (canTAron)
+
+grupo 3 - antepenúltima silaba - siempre un acento (murciélago, máscara, antepenúltima)
+

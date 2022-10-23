@@ -1,0 +1,7 @@
+// Ajoutez votre numero d'etudiant après le ':'.
+// Si vous etes en binome, remplissez les 2 lignes.
+// Si vous etiez absent de la seance de TD, mettez une courte explication.
+
+NumeroEtudiant: / (CAPITAN)
+NumeroEtudiant: /
+ExplicationAbsence: /

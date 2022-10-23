@@ -1,0 +1,53 @@
+Related
+What does a typical day of a quant trader look like?
+
+This is a typical day of guy called patrick, i am just sharing his experience. trying to help...
+
+Here it is...
+
+08:20 Get out of bed a bit too late, run through the shower and start walking to the office. Its fucking cold outside but I rather walk than squeeze into a bus or the tube - its faster and at least I get some exercise.
+
+09:00 At office. Grateful for the fact that many commodities trade late in my timezone and I don't have to be there earlier if no special circumstances exist. Try to catch up with overnight emails while eating some breakfast.
+
+09:20 Continue working on some analysis of a trading idea. Produce some stats and graphs. Also involves some development on a pricing model that doesn't exist yet, but a coworker has done most of it.
+
+09:45 Interrupted by sales person wanting help with setting up a highly custmized swap on a basket of products. We find the problem with his setup and corrects it. Ready to trade.
+
+10:00 Conduct a phone interview. Candidate looks good on paper, all kinds of qualifications and fancy schools. Fresh PhD. Turns out that the paper is better than reality though. Fascinating how often that happens..
+
+10:45 Back on trading idea but gets pulled into a meeting before getting anything done. Meeting is a over-the-wall meeting together with banking and financing. What needs to be done on the hedging side? What sort of credit risk will different solutions give? What's the situation from a legal standpoint?
+
+11:45 Work on some credit analysis of different ideas from the meeting. Seems like we could get comfortable doing the deal. Still early days though, a lot of info still missing.
+
+12:45 Trader wants a short discussion on an exotic she hasn't traded before. Seems to understand it and has an idea of her risk.
+
+13:00 Go down to get some lunch, bring back to eat on desk while trying to catch up with emails.
+
+13:20 Weekly group meeting. What did everyone spend time on last week, what trades where we involved in, how's long term projects coming along, what's priority for the coming week. etc. Good to know what everyone's up to.
+
+14:00 Short discussion with sales person and collegue about ideas and prospects to do a certain type of business with a certain type of companies.
+
+14:20 Do some analysis based on discusson above. Turns out there's no way to get the type of deals discussed done in current market conditions. Get a good idea of a stock to short. Making mental note to see if that's possible on personal account. Or perhaps contact the eq prop guys.
+
+15:30 Trader comes over with a question of how he should be marking his vol model parameters to match vols for early expiring and normal swaptions expiring at the same time. Bring a coworker into the discussion. She has more intuition on the situation and we come up with how to go about it manually but that it would be good to develop some new tools to simplify/speed up the process. Also come up with some other calibration tools that would be cool. Something for the future though, they can get by without even if its more painful. Trader accepts but complains a bit that we don't spend enough time on his stuff.
+
+16:00 More work on the trading idea. It looks cool.
+
+17:30 Floor starts to quiet down a bit. NYC day is well under way. A group of us gets on the phone with NYC do discuss a project both sides of the atlantic are working on.
+
+18:30 Some sales and traders start to leave the office. The people involved in the banking deal have a meeting with legal to discuss contractual stuff impacting the credit situation of the deal. Are we getting the protection we need?
+
+19:20 Go down to buy some dinner. Bring back to desk and eat while checking up on email again. Some emails from model validation - who neads documentation anyway?
+
+19:50 Do some work on tools we expect will help in getting the banking deal done. A more quantitative approach compared to how the bankers think about the situation. Kicks ass. Or will at some point at least..
+20:15 Starting to think about getting out of the office. Not quite possible yet.
+
+21:15 Most important stuff either done or handed over to NYC to continue with overnight. Time to get out before something else comes up!
+
+21:35 Back home. My flat mate from banking is of course not home yet. Make some phone calls, get a DVD from the place next door. Banking friend still not home when going to bed to read a book around 24:00.
+I think that's a reasonably representative day. Of course there is a pretty big variance, sometime more quiet and sometime crazier. Good days I get in at 900 and get out at 1830, bad days can be 0800-anything. Most intense period so far is 5 weeks with two days off and many days ending at 2 in the morning. Getting out at 0330 on a Friday night (saturday morning) makes you sort of question what the fuck you're doing, but don't expect that to happen very often. But I wouldn't expect to see many 17:30 days either though..
+
+Hope it will enlighten at least someone.
+
+You can find the complete discussion on the very same topic here
+Nuclear Phynance

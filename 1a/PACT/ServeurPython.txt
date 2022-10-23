@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+#coding: utf-8
+
+import socket #C'est là que se trouvent les outils pour l'envoi réception en TCP / IPv4
+
+###Principe :
+#création d'un socket - préciser le type d'adresse (ce sera du IPv4 probablement, peut-être IPv6)
+#pour IPv4 : socket.AF_INET     pour IPv6 : socket.AF_INET6
+#On va travailler avec un flux TCP avec socket.SOCK_STREAM.
+#On aurait pu travailler avec des datagram (UDP) avec socket.SOCK_DGRAM
+
+#On lui donne ensuite l'adresse du client. Pour s'entraîner : localhost ou 127.0.0.1
+#Si les clients sont sur des machines differentes de celle du serveur, il faudra utiliser 0.0.0.0 ou une adresse valide.
+#Il faut aussi donner un port pour la connection. Le port ne doit pas etre utilise par un autre processus.
+#Autre raison de bloquage : le port/socket n'a pas été fermé correctement, auquel cas il faut attendre.
+#Le port est un entier entre 1024 et 65535 pour être sur de ne pas tomber sur un endroit déjà utilisé. On peut se mettre en 8080 c'est un classique.
+
+#Après établissement de la connexion, on crée un socket pour le client connecté, en récupérant son adresse et le port utilisé. Un try/catch à la python assure que le socket sera fermé.
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+address = ('127.194.156.57', 8080)
+sock.bind(address)
+sock.listen()
+
+#On attend maintenant des connexions en écoutant :
+
+while True:
+    connection, client_address = sock.accept()
+    try:
+	#Attente d'un message du client, qui doit faire moins de 1024 octets.
+	#En cas de débordement, le reste sera transmis au prochain "paquet recu" par un nouvel appel de connection.recv
+	#connection.recv renvoie un type bytes comme b"bonjour". Si il retourne b"" alors le client a mis fin à sa connexion.
+        print("connection from {}:{}".format(*client_address))
+
+        data = connection.recv(1024)
+        while data:
+            #connection.send(data) renvoie le contenu de data au client.
+            #data est aussi de type bytes
+            connection.send(data)
+            print("from {}:{}: {}".format(client_address[0], client_address[1], data.decode('utf-8')))
+            data = connection.recv(1024)
+    finally:
+        print("close connection from {}:{}".format(*client_address))
+        connection.close()
+
+#On peut tester le serveur à utiliser avec netcat, cet outil formidable : 'ncat 127.0.0.1 8080' en local au port 8080 puis ctrl+D pour fermer
+
